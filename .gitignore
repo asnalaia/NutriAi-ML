@@ -15,8 +15,6 @@ tf/
 Thumbs.db
 
 # Large model files
-*.keras
-*.h5
 *.zip
 
 # API keys
