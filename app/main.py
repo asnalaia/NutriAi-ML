@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routes.predict_route import router as predict_router
 
 app = FastAPI(
-    title="NutriVision AI Backend",
+    title="NutriAI Backend",
     description="REST API untuk prediksi makanan, estimasi nutrisi, AKG, dan rekomendasi gizi",
     version="1.0.0"
 )
@@ -22,5 +22,5 @@ app.include_router(predict_router, prefix="/api", tags=["Prediction"])
 def root():
     return {
         "status": "ok",
-        "message": "NutriVision AI Backend aktif"
+        "message": "NutriAI is running"
     }
