@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+env/
+api_env/
+tf/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Large model files
+*.keras
+*.h5
+*.zip
+
+# API keys
+.env
