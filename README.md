@@ -79,31 +79,34 @@ flowchart TD
 
 ## 📁 Struktur Repository
 
+
 ```bash
-NutriAi-ML/
-│
+ML/
+├── __pycache__/
+├── .devcontainer/
 ├── app/
-│   ├── main.py
+│   ├── __pycache__/
 │   ├── routes/
-│   │   ├── __init__.py
-│   │   └── predict_route.py
-│   └── services/
-│
+│   ├── services/
+│   └── main.py
 ├── artifacts/
 │   ├── akg_breastfeeding.csv
 │   ├── akg_normal.csv
 │   ├── akg_pregnant.csv
+│   ├── best_nutrivision_cnn_food101_akg.keras
 │   ├── class_names.json
 │   ├── nutrition_table_cleaned.csv
 │   └── training_log.csv
-│
+├── assets/
+│   └── Dicoding_Camp_Logo.jpg
 ├── notebook/
 │   ├── NutriAI_CNN_Food101_101Classes.ipynb
 │   └── NutriVision_Food101_Inference.ipynb
-│
 ├── .gitignore
-├── requirements.txt
-└── README.md
+├── Dockerfile
+├── inference.py
+├── README.md
+└── requirements.txt
 ```
 
 ---
@@ -192,6 +195,30 @@ http://127.0.0.1:8000/docs
 ```
 
 ---
+
+## 🖥️ Menjalankan Frontend Streamlit
+
+Aplikasi frontend prototype dibuat menggunakan Streamlit. Pastikan backend FastAPI sudah berjalan terlebih dahulu.
+
+Jalankan Streamlit dengan perintah:
+
+```bash
+streamlit run inference.py
+```
+Aplikasi akan berjalan di:
+```bash
+http://localhost:8501
+```
+---
+## Deployment
+Backend FastAPI dapat di deploy ke Render menggunakan start command:
+```bash
+python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
+```
+Frontend Streamlit dapat di deploy ke Streamlit Community Cloud. Pada Streamlit Secrets, tambahkan:
+```bash
+API_URL = "https://url-backend-kamu/api/predict"
+```
 
 ## 🔥 Endpoint API
 
